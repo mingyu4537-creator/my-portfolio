@@ -1,7 +1,7 @@
-export const dynamic = 'force-dynamic';
-
 import { createClient } from '@/lib/supabase/server';
 import PortfolioClient from '@/components/public/PortfolioClient';
+
+export const revalidate = 30; // 30초마다 갱신
 
 export default async function HomePage() {
   const supabase = createClient();
