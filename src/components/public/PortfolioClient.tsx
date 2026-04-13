@@ -51,7 +51,7 @@ export default function PortfolioClient({ experiences, config }: Props) {
       <Navbar name={config.name || ''} />
       <main>
         <Hero config={config} />
-        <About bio={config.bio || ''} />
+        <About />
         <Works />
         <AIWorks />
         <AIChatbot />
