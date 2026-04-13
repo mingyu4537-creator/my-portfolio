@@ -3,8 +3,6 @@
 import Navbar from './Navbar';
 import Hero from './Hero';
 import About from './About';
-import Skills from './Skills';
-import Projects from './Projects';
 import Works from './Works';
 import AIWorks from './AIWorks';
 import AIChatbot from './AIChatbot';
@@ -15,12 +13,10 @@ import Experience from './Experience';
 import Contact from './Contact';
 import Footer from './Footer';
 import ScrollProgress from '@/components/ui/ScrollProgress';
-import type { Project, Experience as ExperienceType, Skill } from '@/types';
+import type { Experience as ExperienceType } from '@/types';
 
 interface Props {
-  projects: Project[];
   experiences: ExperienceType[];
-  skills: Skill[];
   config: Record<string, string>;
 }
 
@@ -48,7 +44,7 @@ const illustrationImages: { src: string; title: string }[] = [
   { src: '/illustrations/141407419_p0_master1200.webp', title: 'Illustration 19' },
 ];
 
-export default function PortfolioClient({ projects, experiences, skills, config }: Props) {
+export default function PortfolioClient({ experiences, config }: Props) {
   return (
     <>
       <ScrollProgress />
@@ -56,8 +52,6 @@ export default function PortfolioClient({ projects, experiences, skills, config 
       <main>
         <Hero config={config} />
         <About bio={config.bio || ''} />
-        <Skills skills={skills} />
-        <Projects projects={projects} />
         <Works />
         <AIWorks />
         <AIChatbot />
