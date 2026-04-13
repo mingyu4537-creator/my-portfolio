@@ -1,7 +1,9 @@
 import { createClient } from '@/lib/supabase/server';
 import PortfolioClient from '@/components/public/PortfolioClient';
 
-export const revalidate = 3600; // 1시간마다 갱신
+// 빌드 시 정적 생성 (SSG) - 콜드 스타트 없음
+export const dynamic = 'force-static';
+export const revalidate = false;
 
 export default async function HomePage() {
   const supabase = createClient();
