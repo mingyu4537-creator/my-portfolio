@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
+import { FileText } from 'lucide-react';
 
 const bio = `웹툰 플랫폼 탑툰에서 채색 작가로 시작하여, 현재는 AI 기반 이미지·영상 제작까지 업무 영역을 확장해온 크리에이터입니다.
 
@@ -30,6 +31,15 @@ export default function About() {
             <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-lg whitespace-pre-line">
               {bio}
             </p>
+            <div className="mt-6 text-center">
+              <a
+                href="/resume"
+                className="inline-flex items-center gap-2 px-5 py-2.5 bg-primary-600 text-white rounded-full hover:bg-primary-700 transition font-medium text-sm"
+              >
+                <FileText className="w-4 h-4" />
+                자기소개서 자세히 보기
+              </a>
+            </div>
           </div>
         </motion.div>
       </div>
