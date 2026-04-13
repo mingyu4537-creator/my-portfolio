@@ -24,6 +24,33 @@ const works: WorkItem[] = [
     link: 'https://toptoon.com/comic/ep_list/TodayDinner',
     details: '64화~106화 채색 담당 (완결작, 총 106화 + 에필로그)',
   },
+  {
+    title: '야간병원 애니메이션',
+    role: 'AI 캐릭터 디자인 · T2I 이미지 제작 · I2V 영상 제작',
+    category: '영상',
+    description: '탑툰 애니메이션 | 원작: 야간병원',
+    thumbnail: '/works/night-hospital.jpg',
+    link: 'https://toptoon.com/comic/ep_view/night_hospital_anime/1/',
+    details: 'AI 기반 캐릭터 디자인 + 이미지 생성(T2I) + 애니메이션 영상 제작(I2V)',
+  },
+  {
+    title: '모비딕 애니메이션',
+    role: 'T2I 이미지 제작 · I2V 영상 제작',
+    category: '영상',
+    description: '탑툰 애니메이션 | 원작: 모비딕 · 글/그림: 얀새',
+    thumbnail: '/works/mobydick.jpg',
+    link: 'https://toptoon.com/comic/ep_view/Mobydick_anime/12/',
+    details: 'AI 이미지 생성(T2I) + 애니메이션 영상 제작(I2V)',
+  },
+  {
+    title: '사내연애 금지 애니메이션',
+    role: 'T2I 이미지 제작 · I2V 영상 제작',
+    category: '영상',
+    description: '탑툰 애니메이션 | 원작: 사내연애 금지',
+    thumbnail: '',
+    link: 'https://toptoon.com/comic/ep_view/no_office_romance_anime/2/',
+    details: 'AI 이미지 생성(T2I) + 애니메이션 영상 제작(I2V)',
+  },
 ];
 
 export default function Works() {
