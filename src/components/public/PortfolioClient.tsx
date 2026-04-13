@@ -6,6 +6,7 @@ import About from './About';
 import Skills from './Skills';
 import Projects from './Projects';
 import Illustrations from './Illustrations';
+import YouTubeShorts from './YouTubeShorts';
 import Experience from './Experience';
 import Contact from './Contact';
 import Footer from './Footer';
@@ -54,6 +55,7 @@ export default function PortfolioClient({ projects, experiences, skills, config 
         <Skills skills={skills} />
         <Projects projects={projects} />
         <Illustrations images={illustrationImages} />
+        <YouTubeShorts />
         <Experience experiences={experiences} />
         <Contact config={config} />
       </main>
