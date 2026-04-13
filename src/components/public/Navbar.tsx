@@ -13,6 +13,7 @@ const navLinks = [
   { href: '#ai-works', label: 'AI Works' },
   { href: '#ai-chatbot', label: 'AI Chatbot' },
   { href: '#illustrations', label: 'Illustrations' },
+  { href: '#emoticons', label: 'Emoticons' },
   { href: '#youtube', label: 'YouTube' },
   { href: '#experience', label: 'Experience' },
   { href: '#contact', label: 'Contact' },
