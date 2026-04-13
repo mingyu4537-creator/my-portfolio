@@ -51,6 +51,24 @@ const works: WorkItem[] = [
     link: 'https://toptoon.com/comic/ep_view/no_office_romance_anime/2/',
     details: 'AI 이미지 생성(T2I) + 애니메이션 영상 제작(I2V)',
   },
+  {
+    title: '탑툰 챗봇 - 은혜',
+    role: 'I2V 에셋 제작',
+    category: '챗봇',
+    description: '탑툰 챗 | 아트 팀장 은혜 캐릭터',
+    thumbnail: '/works/chatbot-eunhye.jpg',
+    link: 'https://toptoon.chat/detail/character/129',
+    details: '캐릭터가 움직이는 I2V 애니메이션 에셋 제작',
+  },
+  {
+    title: '탑툰 챗봇 - 차수민',
+    role: 'LoRA 학습 · 에셋 제작 · I2V 제작',
+    category: '챗봇',
+    description: '탑툰 챗 | 차수민 캐릭터',
+    thumbnail: '/works/chatbot-sumin.jpg',
+    link: 'https://toptoon.chat/detail/character/97',
+    details: 'LoRA 학습부터 캐릭터 에셋 전체 제작 + I2V 애니메이션 제작',
+  },
 ];
 
 export default function Works() {
