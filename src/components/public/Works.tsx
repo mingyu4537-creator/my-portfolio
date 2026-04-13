@@ -69,42 +69,6 @@ const works: WorkItem[] = [
     link: 'https://toptoon.chat/detail/character/97',
     details: 'LoRA 학습부터 캐릭터 에셋 전체 제작 + I2V 애니메이션 제작',
   },
-  {
-    title: 'SDXL LoRA Web Trainer',
-    role: '기획 · 개발 (Claude Code)',
-    category: 'AI 도구',
-    description: '웹 기반 LoRA 학습 프로그램',
-    thumbnail: '',
-    link: null,
-    details: '이미지 업로드 → 자동 캡션 → LoRA 학습 → 모델 내보내기까지 원스톱 웹 UI. FastAPI + Kohya SD Scripts 기반',
-  },
-  {
-    title: 'SDXL LoRA Trainer (CLI)',
-    role: '기획 · 개발 (Claude Code)',
-    category: 'AI 도구',
-    description: 'CLI 기반 LoRA 학습 자동화 도구',
-    thumbnail: '',
-    link: null,
-    details: '얼굴 감지 → 크롭 → 자동 캡셔닝(WD-Tagger) → 학습 → 샘플 생성 파이프라인 자동화',
-  },
-  {
-    title: 'ComfyUI 커스텀 노드 개발',
-    role: '기획 · 개발 (Claude Code)',
-    category: 'AI 도구',
-    description: 'ComfyUI 워크플로우용 커스텀 노드 제작',
-    thumbnail: '',
-    link: null,
-    details: '업무에 필요한 ComfyUI 커스텀 노드를 직접 설계 및 개발. Claude Code 활용',
-  },
-  {
-    title: 'ComfyUI 워크플로우 제작',
-    role: '워크플로우 설계 · 영상 제작',
-    category: 'AI 제작',
-    description: 'ComfyUI 기반 AI 이미지/영상 파이프라인',
-    thumbnail: '',
-    link: null,
-    details: 'T2I · I2V 워크플로우 설계 및 AI 영상 제작. 상업 프로젝트에 활용',
-  },
 ];
 
 export default function Works() {
