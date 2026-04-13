@@ -47,7 +47,7 @@ export default function PortfolioClient({ config }: Props) {
       <ScrollProgress />
       <Navbar name={config.name || ''} />
       <main>
-        <Hero config={config} />
+        <Hero />
         <About />
         <Works />
         <AIWorks />
