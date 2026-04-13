@@ -2,9 +2,25 @@
 
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import type { Experience as ExperienceType } from '@/types';
 
-export default function Experience({ experiences }: { experiences: ExperienceType[] }) {
+const experiences = [
+  {
+    period: '2022.12 ~ 현재',
+    company: '탑툰 (TopToon)',
+    role: '채색 작가 → AI 영상 제작',
+    description: '웹툰 채색으로 시작하여 AI 기반 이미지·영상 제작으로 업무 전환',
+    highlights: [
+      '웹툰 채색 (64~106화)',
+      'T2I / I2V 영상 제작',
+      'AI 캐릭터 디자인',
+      'LoRA 학습 프로그램 개발',
+      'ComfyUI 커스텀 노드 개발',
+      '챗봇 에셋 제작',
+    ],
+  },
+];
+
+export default function Experience() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-100px' });
 
@@ -19,51 +35,33 @@ export default function Experience({ experiences }: { experiences: ExperienceTyp
           Work <span className="text-primary-600">Experience</span>
         </motion.h2>
 
-        <div className="relative">
-          {/* 타임라인 선 */}
-          <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-gray-200 dark:bg-gray-800 -translate-x-1/2" />
-
-          <div className="space-y-8">
-            {experiences.map((exp, i) => (
-              <motion.div
-                key={exp.id}
-                initial={{ opacity: 0, x: i % 2 === 0 ? -30 : 30 }}
-                animate={inView ? { opacity: 1, x: 0 } : {}}
-                transition={{ delay: i * 0.15 }}
-                className={`relative flex items-start gap-6 ${
-                  i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
-                }`}
-              >
-                {/* 점 */}
-                <div className="absolute left-4 md:left-1/2 w-3 h-3 bg-primary-600 rounded-full -translate-x-1/2 mt-2 ring-4 ring-white dark:ring-gray-950 z-10" />
-
-                <div className={`ml-10 md:ml-0 md:w-1/2 ${i % 2 === 0 ? 'md:pr-10 md:text-right' : 'md:pl-10'}`}>
-                  <div className="bg-white dark:bg-gray-900 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-800">
-                    <span className="text-xs text-primary-600 font-medium">{exp.period}</span>
-                    <h3 className="text-lg font-semibold mt-1">{exp.company}</h3>
-                    <p className="text-sm text-gray-500 dark:text-gray-400">{exp.role}</p>
-                    {exp.description && (
-                      <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">{exp.description}</p>
-                    )}
-                    {exp.highlights?.length > 0 && (
-                      <div className={`flex flex-wrap gap-1.5 mt-3 ${i % 2 === 0 ? 'md:justify-end' : ''}`}>
-                        {exp.highlights.map((h, j) => (
-                          <span key={j} className="px-2 py-0.5 bg-primary-50 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400 rounded text-xs">
-                            {h}
-                          </span>
-                        ))}
-                      </div>
-                    )}
-                  </div>
+        <div className="space-y-6">
+          {experiences.map((exp, i) => (
+            <motion.div
+              key={exp.company}
+              initial={{ opacity: 0, y: 30 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ delay: i * 0.15 }}
+              className="bg-white dark:bg-gray-900 rounded-2xl p-6 shadow-sm border border-gray-100 dark:border-gray-800"
+            >
+              <div className="flex items-start justify-between mb-3">
+                <div>
+                  <h3 className="text-xl font-bold">{exp.company}</h3>
+                  <p className="text-gray-500 dark:text-gray-400">{exp.role}</p>
                 </div>
-              </motion.div>
-            ))}
-          </div>
+                <span className="text-sm text-primary-600 font-medium whitespace-nowrap">{exp.period}</span>
+              </div>
+              <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">{exp.description}</p>
+              <div className="flex flex-wrap gap-1.5">
+                {exp.highlights.map((h) => (
+                  <span key={h} className="px-2.5 py-1 bg-primary-50 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400 rounded-lg text-xs font-medium">
+                    {h}
+                  </span>
+                ))}
+              </div>
+            </motion.div>
+          ))}
         </div>
-
-        {experiences.length === 0 && (
-          <p className="text-center py-10 text-gray-500">등록된 경력이 없습니다.</p>
-        )}
       </div>
     </section>
   );

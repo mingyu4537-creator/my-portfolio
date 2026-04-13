@@ -13,10 +13,7 @@ import Experience from './Experience';
 import Contact from './Contact';
 import Footer from './Footer';
 import ScrollProgress from '@/components/ui/ScrollProgress';
-import type { Experience as ExperienceType } from '@/types';
-
 interface Props {
-  experiences: ExperienceType[];
   config: Record<string, string>;
 }
 
@@ -44,7 +41,7 @@ const illustrationImages: { src: string; title: string }[] = [
   { src: '/illustrations/141407419_p0_master1200.webp', title: 'Illustration 19' },
 ];
 
-export default function PortfolioClient({ experiences, config }: Props) {
+export default function PortfolioClient({ config }: Props) {
   return (
     <>
       <ScrollProgress />
@@ -58,8 +55,8 @@ export default function PortfolioClient({ experiences, config }: Props) {
         <Illustrations images={illustrationImages} />
         <Emoticons />
         <YouTubeShorts />
-        <Experience experiences={experiences} />
-        <Contact config={config} />
+        <Experience />
+        <Contact />
       </main>
       <Footer name={config.name || ''} />
     </>

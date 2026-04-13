@@ -8,10 +8,7 @@ export const revalidate = false;
 export default async function HomePage() {
   const supabase = createClient();
 
-  const [experiencesRes, configRes] = await Promise.all([
-    supabase.from('experiences').select('*').order('sort_order'),
-    supabase.from('site_config').select('*'),
-  ]);
+  const configRes = await supabase.from('site_config').select('*');
 
   const config: Record<string, string> = {};
   configRes.data?.forEach((row) => {
@@ -19,9 +16,6 @@ export default async function HomePage() {
   });
 
   return (
-    <PortfolioClient
-      experiences={experiencesRes.data || []}
-      config={config}
-    />
+    <PortfolioClient config={config} />
   );
 }
