@@ -7,6 +7,7 @@ import Skills from './Skills';
 import Projects from './Projects';
 import Works from './Works';
 import AIWorks from './AIWorks';
+import AIChatbot from './AIChatbot';
 import Illustrations from './Illustrations';
 import YouTubeShorts from './YouTubeShorts';
 import Experience from './Experience';
@@ -58,6 +59,7 @@ export default function PortfolioClient({ projects, experiences, skills, config 
         <Projects projects={projects} />
         <Works />
         <AIWorks />
+        <AIChatbot />
         <Illustrations images={illustrationImages} />
         <YouTubeShorts />
         <Experience experiences={experiences} />

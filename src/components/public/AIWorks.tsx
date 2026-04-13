@@ -89,17 +89,6 @@ const aiWorks: AIWorkItem[] = [
     details: 'T2I · I2V 워크플로우 설계 및 AI 영상 제작. 상업 프로젝트에 활용',
     techStack: ['ComfyUI', 'Stable Diffusion', 'LTX Video'],
   },
-  {
-    title: '데스크톱 펫 챗봇',
-    role: '기획 · 개발 (Claude Code)',
-    category: '챗봇',
-    description: 'Electron + Gemini API 데스크톱 펫 앱',
-    icon: 'cpu',
-    thumbnail: '',
-    links: [],
-    details: '바탕화면 위에 움직이는 캐릭터가 상주하며 AI 채팅 가능. Gemini API 연동, 캐릭터별 페르소나 설정, 메모 기능 포함. I2V로 캐릭터 애니메이션 에셋 직접 제작',
-    techStack: ['Electron', 'Gemini API', 'I2V', 'JavaScript'],
-  },
 ];
 
 export default function AIWorks() {
@@ -214,44 +203,6 @@ export default function AIWorks() {
           })}
         </div>
 
-        {/* 챗봇 캐릭터 & 데모 */}
-        {(filter === 'all' || filter === '챗봇') && (
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ delay: 0.3 }}
-            className="mt-10 bg-white dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-800 shadow-sm overflow-hidden"
-          >
-            <div className="p-6">
-              <h3 className="text-lg font-bold mb-4">캐릭터 에셋 미리보기</h3>
-              <div className="flex items-center justify-center gap-8 mb-6">
-                <div className="text-center">
-                  <div className="w-32 h-32 mx-auto mb-2">
-                    <img src="/works/chatbot-hangyodon.gif" alt="한교동 펫" className="w-full h-full object-contain" />
-                  </div>
-                  <p className="text-sm text-gray-500">한교동 펫</p>
-                </div>
-                <div className="text-center">
-                  <div className="w-32 h-32 mx-auto mb-2">
-                    <img src="/works/chatbot-miku.gif" alt="미쿠 펫" className="w-full h-full object-contain" />
-                  </div>
-                  <p className="text-sm text-gray-500">미쿠 펫</p>
-                </div>
-              </div>
-              <h3 className="text-lg font-bold mb-3">데모 영상</h3>
-              <div className="rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-800">
-                <video
-                  src="/works/chatbot-demo.mp4"
-                  controls
-                  muted
-                  loop
-                  playsInline
-                  className="w-full max-h-[400px] object-contain"
-                />
-              </div>
-            </div>
-          </motion.div>
-        )}
       </div>
     </section>
   );
