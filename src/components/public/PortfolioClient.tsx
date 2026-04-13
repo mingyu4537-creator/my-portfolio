@@ -5,6 +5,7 @@ import Hero from './Hero';
 import About from './About';
 import Skills from './Skills';
 import Projects from './Projects';
+import Works from './Works';
 import Illustrations from './Illustrations';
 import YouTubeShorts from './YouTubeShorts';
 import Experience from './Experience';
@@ -54,6 +55,7 @@ export default function PortfolioClient({ projects, experiences, skills, config 
         <About bio={config.bio || ''} />
         <Skills skills={skills} />
         <Projects projects={projects} />
+        <Works />
         <Illustrations images={illustrationImages} />
         <YouTubeShorts />
         <Experience experiences={experiences} />
