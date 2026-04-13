@@ -11,7 +11,7 @@ const emoticons = [
 
 export default function Emoticons() {
   const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: '-100px' });
+  const inView = useInView(ref, { once: false, margin: '-100px' });
   const [selected, setSelected] = useState<typeof emoticons[0] | null>(null);
 
   return (

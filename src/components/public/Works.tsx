@@ -73,7 +73,7 @@ const works: WorkItem[] = [
 
 export default function Works() {
   const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: '-100px' });
+  const inView = useInView(ref, { once: false, margin: '-100px' });
   const [filter, setFilter] = useState('all');
 
   const categories = ['all', ...Array.from(new Set(works.map((w) => w.category)))];

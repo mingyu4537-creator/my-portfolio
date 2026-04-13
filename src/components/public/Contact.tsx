@@ -7,7 +7,7 @@ import { GithubIcon } from '@/components/ui/SocialIcons';
 
 export default function Contact() {
   const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: '-100px' });
+  const inView = useInView(ref, { once: false, margin: '-100px' });
 
   return (
     <section id="contact" className="py-20 px-4">

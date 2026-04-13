@@ -22,7 +22,7 @@ const experiences = [
 
 export default function Experience() {
   const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: '-100px' });
+  const inView = useInView(ref, { once: false, margin: '-100px' });
 
   return (
     <section id="experience" className="py-20 px-4 bg-gray-50 dark:bg-gray-900/50">

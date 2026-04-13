@@ -11,7 +11,7 @@ interface IllustrationItem {
 
 export default function Illustrations({ images }: { images: IllustrationItem[] }) {
   const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: '-100px' });
+  const inView = useInView(ref, { once: false, margin: '-100px' });
   const [selected, setSelected] = useState<IllustrationItem | null>(null);
 
   if (images.length === 0) return null;

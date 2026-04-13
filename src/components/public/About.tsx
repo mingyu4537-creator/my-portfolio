@@ -13,7 +13,7 @@ const bio = `웹툰 플랫폼 탑툰에서 채색 작가로 시작하여, 현재
 
 export default function About() {
   const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: '-100px' });
+  const inView = useInView(ref, { once: false, margin: '-100px' });
 
   return (
     <section id="about" className="py-20 px-4">

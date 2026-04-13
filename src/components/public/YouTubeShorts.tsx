@@ -17,7 +17,7 @@ const shorts: ShortItem[] = [
 
 export default function YouTubeShorts() {
   const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: '-100px' });
+  const inView = useInView(ref, { once: false, margin: '-100px' });
 
   return (
     <section id="youtube" className="py-20 px-4">
