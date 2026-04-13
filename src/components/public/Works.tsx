@@ -20,7 +20,7 @@ const works: WorkItem[] = [
     role: '채색 작가',
     category: '웹툰',
     description: '탑툰 연재 | 글: 활화산 · 그림: 권모양',
-    thumbnail: 'https://toptoon.com/assets/images/logo_toptoon.svg',
+    thumbnail: '/works/today-dinner.jpg',
     link: 'https://toptoon.com/comic/ep_list/TodayDinner',
     details: '64화~106화 채색 담당 (완결작, 총 106화 + 에필로그)',
   },
@@ -75,6 +75,15 @@ export default function Works() {
               transition={{ delay: i * 0.1 }}
               className="group bg-white dark:bg-gray-900 rounded-2xl overflow-hidden border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-lg transition-all"
             >
+              {work.thumbnail && (
+                <div className="aspect-video overflow-hidden bg-gray-100 dark:bg-gray-800">
+                  <img
+                    src={work.thumbnail}
+                    alt={work.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+              )}
               <div className="p-6">
                 <div className="flex items-start justify-between mb-3">
                   <div>
