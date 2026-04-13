@@ -10,7 +10,8 @@ interface AIWorkItem {
   category: string;
   description: string;
   icon: 'code' | 'cpu' | 'workflow';
-  link: string | null;
+  thumbnail: string;
+  links: { label: string; url: string }[];
   details: string;
   techStack: string[];
 }
@@ -28,8 +29,9 @@ const aiWorks: AIWorkItem[] = [
     category: 'AI 도구',
     description: '웹 기반 LoRA 학습 프로그램',
     icon: 'cpu',
-    link: null,
-    details: '이미지 업로드 → 자동 캡션 → LoRA 학습 → 모델 내보내기까지 원스톱 웹 UI',
+    thumbnail: '/works/lora-trainer-ui.png',
+    links: [],
+    details: '이미지 업로드 → 자동 캡션 → LoRA 학습 → 모델 내보내기까지 원스톱 웹 UI. 직접 LoRA를 제작하며, 실제 업무에서 팀원 전체가 사용 중인 사내 도구',
     techStack: ['FastAPI', 'Kohya SD Scripts', 'Python'],
   },
   {
@@ -38,19 +40,43 @@ const aiWorks: AIWorkItem[] = [
     category: 'AI 도구',
     description: 'CLI 기반 LoRA 학습 자동화 도구',
     icon: 'cpu',
-    link: null,
-    details: '얼굴 감지 → 크롭 → 자동 캡셔닝(WD-Tagger) → 학습 → 샘플 생성 파이프라인 자동화',
+    thumbnail: '',
+    links: [],
+    details: '얼굴 감지 → 크롭 → 자동 캡셔닝(WD-Tagger) → 학습 → 샘플 생성 파이프라인 자동화. 직접 LoRA를 제작하며, 실제 업무에서 팀원 전체가 사용 중',
     techStack: ['Python', 'WD-Tagger', 'BLIP2'],
   },
   {
-    title: 'ComfyUI 커스텀 노드 개발',
+    title: 'ComfyUI-HairOverlay',
     role: '기획 · 개발 (Claude Code)',
     category: '커스텀 노드',
-    description: 'ComfyUI 워크플로우용 커스텀 노드 제작',
+    description: '머리카락 색상 오버레이 노드',
     icon: 'code',
-    link: null,
-    details: '업무에 필요한 ComfyUI 커스텀 노드를 직접 설계 및 개발',
-    techStack: ['Python', 'ComfyUI', 'Claude Code'],
+    thumbnail: '',
+    links: [{ label: 'GitHub', url: 'https://github.com/mingyu4537-creator/ComfyUI-HairOverlay' }],
+    details: '얼굴 주변 머리카락에 에어브러시처럼 부드러운 색상 오버레이. 필요한 기능은 직접 만든다 — 회사에서 원하는 기능을 커스텀 노드로 직접 개발',
+    techStack: ['Python', 'ComfyUI', 'PIL'],
+  },
+  {
+    title: 'ComfyUI-PinkBlushOverlay',
+    role: '기획 · 개발 (Claude Code)',
+    category: '커스텀 노드',
+    description: '웹툰 스타일 핑크 블러시 노드',
+    icon: 'code',
+    thumbnail: '',
+    links: [{ label: 'GitHub', url: 'https://github.com/mingyu4537-creator/ComfyUI-PinkBlushOverlay' }],
+    details: '피부 영역에 웹툰 스타일 핑크 에어브러시 자동 적용. Photoshop 오버레이 블렌딩 모드 구현. 업무에 필요한 노드를 직접 설계 및 개발',
+    techStack: ['Python', 'ComfyUI', 'OpenCV'],
+  },
+  {
+    title: 'ComfyUI-SkinHighlightRemover',
+    role: '기획 · 개발 (Claude Code)',
+    category: '커스텀 노드',
+    description: '피부 하이라이트 제거 노드',
+    icon: 'code',
+    thumbnail: '',
+    links: [{ label: 'GitHub', url: 'https://github.com/mingyu4537-creator/ComfyUI-SkinHighlightRemover' }],
+    details: '피부 위 하이라이트를 감지하고 블러 브러시로 자연스럽게 제거. 라인아트 보호 기능 포함. 회사에서 필요한 후처리 기능을 노드로 직접 구현',
+    techStack: ['Python', 'ComfyUI', 'OpenCV'],
   },
   {
     title: 'ComfyUI 워크플로우 제작',
@@ -58,7 +84,8 @@ const aiWorks: AIWorkItem[] = [
     category: '워크플로우',
     description: 'ComfyUI 기반 AI 이미지/영상 파이프라인',
     icon: 'workflow',
-    link: null,
+    thumbnail: '',
+    links: [],
     details: 'T2I · I2V 워크플로우 설계 및 AI 영상 제작. 상업 프로젝트에 활용',
     techStack: ['ComfyUI', 'Stable Diffusion', 'LTX Video'],
   },
@@ -115,6 +142,15 @@ export default function AIWorks() {
                 transition={{ delay: i * 0.1 }}
                 className="group bg-white dark:bg-gray-900 rounded-2xl overflow-hidden border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-lg transition-all"
               >
+                {work.thumbnail && (
+                  <div className="aspect-video overflow-hidden bg-gray-100 dark:bg-gray-800">
+                    <img
+                      src={work.thumbnail}
+                      alt={work.title}
+                      className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+                )}
                 <div className="p-6">
                   <div className="flex items-start justify-between mb-3">
                     <div className="flex items-start gap-3">
@@ -128,15 +164,19 @@ export default function AIWorks() {
                         <h3 className="text-xl font-bold">{work.title}</h3>
                       </div>
                     </div>
-                    {work.link && (
-                      <a
-                        href={work.link}
-                        target="_blank"
-                        className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition flex-shrink-0"
-                      >
-                        <ExternalLink className="w-5 h-5" />
-                      </a>
-                    )}
+                    <div className="flex gap-1">
+                      {work.links.map((link) => (
+                        <a
+                          key={link.url}
+                          href={link.url}
+                          target="_blank"
+                          className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition flex-shrink-0"
+                          title={link.label}
+                        >
+                          <ExternalLink className="w-5 h-5" />
+                        </a>
+                      ))}
+                    </div>
                   </div>
 
                   <div className="inline-block px-3 py-1 bg-gray-100 dark:bg-gray-800 rounded-lg text-sm font-medium mb-3">
