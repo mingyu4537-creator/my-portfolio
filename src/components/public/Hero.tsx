@@ -41,7 +41,7 @@ export default function Hero({ config }: HeroProps) {
 
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4">
             안녕하세요,{' '}
-            <span className="text-primary-600">{config.name || '개발자'}</span>
+            <span className="text-primary-600">김민규</span>
             입니다
           </h1>
 
