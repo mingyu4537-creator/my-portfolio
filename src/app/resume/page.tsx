@@ -5,6 +5,17 @@ import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
 import ThemeToggle from '@/components/ui/ThemeToggle';
 
+function getWorkPeriod() {
+  const start = new Date(2022, 11); // 2022년 12월
+  const now = new Date();
+  let years = now.getFullYear() - start.getFullYear();
+  let months = now.getMonth() - start.getMonth();
+  if (months < 0) { years--; months += 12; }
+  if (years > 0 && months > 0) return `${years}년 ${months}개월`;
+  if (years > 0) return `${years}년`;
+  return `${months}개월`;
+}
+
 const sections = [
   {
     title: '성장 과정',
@@ -87,7 +98,7 @@ export default function ResumePage() {
             <span className="text-sm">|</span>
             <span className="text-sm">1998년생</span>
             <span className="text-sm">|</span>
-            <span className="text-sm">탑툰 AI 영상 제작 (3년 4개월)</span>
+            <span className="text-sm">탑툰 AI 영상 제작 ({getWorkPeriod()})</span>
           </div>
         </motion.div>
 
