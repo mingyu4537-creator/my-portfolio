@@ -1,8 +1,9 @@
 import { createClient } from '@/lib/supabase/server';
 import PortfolioClient from '@/components/public/PortfolioClient';
 
-// ISR: 60초마다 재검증 — 관리자에서 수정하면 최대 1분 후 반영
-export const revalidate = 60;
+// 빌드 시 정적 생성 (SSG) - 콜드 스타트 없음
+export const dynamic = 'force-static';
+export const revalidate = false;
 
 export default async function HomePage() {
   const supabase = createClient();
