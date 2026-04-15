@@ -52,7 +52,7 @@ const works: WorkItem[] = [
     thumbnail: '/works/mobydick.webp',
     link: 'https://toptoon.com/comic/ep_view/Mobydick_anime/12/',
     details: 'AI 이미지 생성(T2I) + 애니메이션 영상 제작(I2V)',
-    contributions: [{ task: 'T2I · I2V 영상 제작', percent: 50 }],
+    contributions: [{ task: 'I2V 영상 제작', percent: 50 }],
   },
   {
     title: '사내연애 금지 애니메이션',
