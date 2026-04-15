@@ -10,6 +10,7 @@ interface ShortItem {
 }
 
 const shorts: ShortItem[] = [
+  { id: 'aMVShv4-5TE', title: 'Still Here — 그 자리에' },
   { id: 'Ocgr-SJFtkk', title: 'Cortisol meme anime!!' },
   { id: 'kgitDcMYazU', title: 'SET JET! Uma Musume' },
   { id: 'sGE6YVBpgS8', title: 'aka! siro! pink~ #아카 #시로 #마제따라' },
