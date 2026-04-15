@@ -46,12 +46,12 @@ const works: WorkItem[] = [
   },
   {
     title: '모비딕 애니메이션',
-    role: 'T2I 이미지 제작 · I2V 영상 제작',
+    role: 'I2V 영상 제작',
     category: '영상',
     description: '탑툰 애니메이션 | 원작: 모비딕 · 글/그림: 얀새',
     thumbnail: '/works/mobydick.webp',
     link: 'https://toptoon.com/comic/ep_view/Mobydick_anime/12/',
-    details: 'AI 이미지 생성(T2I) + 애니메이션 영상 제작(I2V)',
+    details: '애니메이션 영상 제작(I2V)',
     contributions: [{ task: 'I2V 영상 제작', percent: 50 }],
   },
   {
