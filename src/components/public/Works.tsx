@@ -4,6 +4,11 @@ import { motion, useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
 import { ExternalLink } from 'lucide-react';
 
+interface Contribution {
+  task: string;
+  percent: number;
+}
+
 interface WorkItem {
   title: string;
   role: string;
@@ -12,6 +17,7 @@ interface WorkItem {
   thumbnail: string;
   link: string | null;
   details: string;
+  contributions: Contribution[];
 }
 
 const works: WorkItem[] = [
@@ -23,6 +29,7 @@ const works: WorkItem[] = [
     thumbnail: '/works/today-dinner.webp',
     link: 'https://toptoon.com/comic/ep_list/TodayDinner',
     details: '64화~106화 채색 담당 (완결작, 총 106화 + 에필로그)',
+    contributions: [{ task: '채색', percent: 100 }],
   },
   {
     title: '야간병원 애니메이션',
@@ -32,6 +39,10 @@ const works: WorkItem[] = [
     thumbnail: '/works/night-hospital.webp',
     link: 'https://toptoon.com/comic/ep_view/night_hospital_anime/1/',
     details: 'AI 기반 캐릭터 디자인 + 이미지 생성(T2I) + 애니메이션 영상 제작(I2V)',
+    contributions: [
+      { task: '캐릭터 시트 제작', percent: 100 },
+      { task: 'I2V 영상 제작', percent: 50 },
+    ],
   },
   {
     title: '모비딕 애니메이션',
@@ -41,6 +52,7 @@ const works: WorkItem[] = [
     thumbnail: '/works/mobydick.webp',
     link: 'https://toptoon.com/comic/ep_view/Mobydick_anime/12/',
     details: 'AI 이미지 생성(T2I) + 애니메이션 영상 제작(I2V)',
+    contributions: [{ task: 'T2I · I2V 영상 제작', percent: 50 }],
   },
   {
     title: '사내연애 금지 애니메이션',
@@ -50,6 +62,7 @@ const works: WorkItem[] = [
     thumbnail: '',
     link: 'https://toptoon.com/comic/ep_view/no_office_romance_anime/2/',
     details: 'AI 이미지 생성(T2I) + 애니메이션 영상 제작(I2V)',
+    contributions: [{ task: 'I2V 서포트 · 수정', percent: 20 }],
   },
   {
     title: '탑툰 챗봇 - 은혜',
@@ -59,6 +72,7 @@ const works: WorkItem[] = [
     thumbnail: '/works/chatbot-eunhye.webp',
     link: 'https://toptoon.chat/detail/character/129',
     details: '캐릭터가 움직이는 I2V 애니메이션 에셋 제작',
+    contributions: [{ task: 'I2V 에셋 제작', percent: 50 }],
   },
   {
     title: '탑툰 챗봇 - 차수민',
@@ -68,6 +82,12 @@ const works: WorkItem[] = [
     thumbnail: '/works/chatbot-sumin.webp',
     link: 'https://toptoon.chat/detail/character/97',
     details: 'LoRA 학습부터 캐릭터 에셋 전체 제작 + I2V 애니메이션 제작',
+    contributions: [
+      { task: '캐릭터 제작', percent: 100 },
+      { task: 'LoRA 학습', percent: 100 },
+      { task: '에셋 제작', percent: 100 },
+      { task: 'I2V 제작', percent: 100 },
+    ],
   },
 ];
 
@@ -156,9 +176,36 @@ export default function Works() {
                   {work.description}
                 </p>
 
-                <p className="text-sm text-gray-600 dark:text-gray-300">
+                <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">
                   {work.details}
                 </p>
+
+                {/* 기여도 */}
+                <div className="space-y-2">
+                  <p className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">기여도</p>
+                  {work.contributions.map((c) => (
+                    <div key={c.task} className="flex items-center gap-3">
+                      <span className="text-xs text-gray-600 dark:text-gray-300 w-28 flex-shrink-0 truncate" title={c.task}>
+                        {c.task}
+                      </span>
+                      <div className="flex-1 h-2 bg-gray-100 dark:bg-gray-800 rounded-full overflow-hidden">
+                        <div
+                          className={`h-full rounded-full transition-all duration-700 ${
+                            c.percent === 100
+                              ? 'bg-primary-500'
+                              : c.percent >= 50
+                              ? 'bg-primary-400'
+                              : 'bg-primary-300'
+                          }`}
+                          style={{ width: `${c.percent}%` }}
+                        />
+                      </div>
+                      <span className="text-xs font-bold text-primary-600 dark:text-primary-400 w-10 text-right">
+                        {c.percent}%
+                      </span>
+                    </div>
+                  ))}
+                </div>
               </div>
             </motion.div>
           ))}

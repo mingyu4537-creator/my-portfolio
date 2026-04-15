@@ -24,8 +24,13 @@ export default function Emoticons() {
         >
           My <span className="text-primary-600">Emoticons</span>
         </motion.h2>
-        <p className="text-center text-gray-500 dark:text-gray-400 mb-10">
+        <p className="text-center text-gray-500 dark:text-gray-400 mb-2">
           직접 그린 이모티콘
+        </p>
+        <p className="text-center mb-10">
+          <span className="inline-block px-3 py-1 bg-primary-100 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400 rounded-full text-xs font-bold">
+            기여도 100%
+          </span>
         </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl mx-auto">

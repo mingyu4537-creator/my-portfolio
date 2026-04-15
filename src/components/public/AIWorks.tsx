@@ -14,6 +14,7 @@ interface AIWorkItem {
   links: { label: string; url: string }[];
   details: string;
   techStack: string[];
+  contribution: number;
 }
 
 const iconMap = {
@@ -33,6 +34,7 @@ const aiWorks: AIWorkItem[] = [
     links: [],
     details: '이미지 업로드 → 자동 캡션 → LoRA 학습 → 모델 내보내기까지 원스톱 웹 UI. 직접 LoRA를 제작하며, 실제 업무에서 팀원 전체가 사용 중인 사내 도구',
     techStack: ['FastAPI', 'Kohya SD Scripts', 'Python'],
+    contribution: 100,
   },
   {
     title: 'SDXL LoRA Trainer (CLI)',
@@ -44,6 +46,7 @@ const aiWorks: AIWorkItem[] = [
     links: [],
     details: '얼굴 감지 → 크롭 → 자동 캡셔닝(WD-Tagger) → 학습 → 샘플 생성 파이프라인 자동화. 직접 LoRA를 제작하며, 실제 업무에서 팀원 전체가 사용 중',
     techStack: ['Python', 'WD-Tagger', 'BLIP2'],
+    contribution: 100,
   },
   {
     title: 'ComfyUI-HairOverlay',
@@ -55,6 +58,7 @@ const aiWorks: AIWorkItem[] = [
     links: [{ label: 'GitHub', url: 'https://github.com/mingyu4537-creator/ComfyUI-HairOverlay' }],
     details: '얼굴 주변 머리카락에 에어브러시처럼 부드러운 색상 오버레이. 필요한 기능은 직접 만든다 — 회사에서 원하는 기능을 커스텀 노드로 직접 개발',
     techStack: ['Python', 'ComfyUI', 'PIL'],
+    contribution: 100,
   },
   {
     title: 'ComfyUI-PinkBlushOverlay',
@@ -66,6 +70,7 @@ const aiWorks: AIWorkItem[] = [
     links: [{ label: 'GitHub', url: 'https://github.com/mingyu4537-creator/ComfyUI-PinkBlushOverlay' }],
     details: '피부 영역에 웹툰 스타일 핑크 에어브러시 자동 적용. Photoshop 오버레이 블렌딩 모드 구현. 업무에 필요한 노드를 직접 설계 및 개발',
     techStack: ['Python', 'ComfyUI', 'OpenCV'],
+    contribution: 100,
   },
   {
     title: 'ComfyUI-SkinHighlightRemover',
@@ -77,6 +82,7 @@ const aiWorks: AIWorkItem[] = [
     links: [{ label: 'GitHub', url: 'https://github.com/mingyu4537-creator/ComfyUI-SkinHighlightRemover' }],
     details: '피부 위 하이라이트를 감지하고 블러 브러시로 자연스럽게 제거. 라인아트 보호 기능 포함. 회사에서 필요한 후처리 기능을 노드로 직접 구현',
     techStack: ['Python', 'ComfyUI', 'OpenCV'],
+    contribution: 100,
   },
   {
     title: 'ComfyUI 워크플로우 제작',
@@ -88,6 +94,7 @@ const aiWorks: AIWorkItem[] = [
     links: [],
     details: 'T2I · I2V 워크플로우 설계 및 AI 영상 제작. 상업 프로젝트에 활용',
     techStack: ['ComfyUI', 'Stable Diffusion', 'LTX Video'],
+    contribution: 100,
   },
 ];
 
@@ -187,7 +194,7 @@ export default function AIWorks() {
                     {work.details}
                   </p>
 
-                  <div className="flex flex-wrap gap-1.5">
+                  <div className="flex flex-wrap gap-1.5 mb-4">
                     {work.techStack.map((tech) => (
                       <span
                         key={tech}
@@ -196,6 +203,20 @@ export default function AIWorks() {
                         {tech}
                       </span>
                     ))}
+                  </div>
+
+                  {/* 기여도 */}
+                  <div className="flex items-center gap-3">
+                    <span className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">기여도</span>
+                    <div className="flex-1 h-2 bg-gray-100 dark:bg-gray-800 rounded-full overflow-hidden">
+                      <div
+                        className="h-full rounded-full bg-primary-500 transition-all duration-700"
+                        style={{ width: `${work.contribution}%` }}
+                      />
+                    </div>
+                    <span className="text-xs font-bold text-primary-600 dark:text-primary-400">
+                      {work.contribution}%
+                    </span>
                   </div>
                 </div>
               </motion.div>
